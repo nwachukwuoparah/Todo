@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react';
 import './App.css'
-// import Scrollbars  from 'react-custom-scrollbars'
+import Scrollbars from 'react-custom-scrollbars'
 import { MdDelete } from "react-icons/md";
 import { MdOutlineFilterList } from "react-icons/md";
 const Card = ({ Todo, HandleFilter, setChecked, HandleDelete }) => {
@@ -34,7 +34,7 @@ const Card = ({ Todo, HandleFilter, setChecked, HandleDelete }) => {
                             </div>
                         </div>
                     </div>
-                    <div className='scroll'>
+                    <Scrollbars className='scroll'>
                         {Todo?.map((item) => <div key={item.id} className="Main_card">
                             <div className='Main_cardtop' style={{ backgroundColor: item.checkers ? '#b9f4b7' : "#fff" }} >
                                 <div className='wrap'>
@@ -50,7 +50,7 @@ const Card = ({ Todo, HandleFilter, setChecked, HandleDelete }) => {
                                 </div>
                             </div>
                         </div>)}
-                    </div>
+                    </Scrollbars>
                 </div>
             </div>
 
