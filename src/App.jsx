@@ -1,4 +1,4 @@
-import { useRef, useReducer, useEffect } from 'react'
+import { useRef, useReducer, useEffect, useState } from 'react'
 import './App.css'
 import Card from './Card'
 import data from './data.json'
@@ -18,9 +18,16 @@ function reducer(todos, action) {
 
 function App() {
   const inputRef = useRef('')
-  const [state, dispch] = useReducer(reducer, data)
+  const [state, dispch] = useReducer(reducer, JSON.parse(localStorage.getItem('state')))
+  // const [input, setInput] = useState('')
+
   // const [test, setTest] = useState('')
   // ###############################################
+
+
+
+
+
 
   const setChecked = (id) => {
     const newArr = state.map((i) => i.id === id ? { ...i, checkers: !i.checkers } : { ...i });
@@ -43,9 +50,11 @@ function App() {
       dispch({ type: 'Add', payload: { todo: inputRef.current.value, id: state.length + 1 } })
     }
   }
+    ;
 
   useEffect(() => {
     inputRef.current.value = ''
+    localStorage.setItem('state', JSON.stringify(state));
   }, [state])
 
   return (

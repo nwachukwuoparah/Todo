@@ -42,6 +42,7 @@ const Card = ({ Todo, HandleFilter, setChecked, HandleDelete }) => {
                                         <input
                                             type="checkbox"
                                             onChange={() => setChecked(item.id)}
+                                            checked={item.checkers}
                                         />
                                         <p>{item.todo}</p>
                                     </div>
@@ -57,5 +58,4 @@ const Card = ({ Todo, HandleFilter, setChecked, HandleDelete }) => {
         </div>
     )
 }
-
 export default Card 
